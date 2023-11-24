@@ -4,11 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 import androidx.annotation.Nullable;
 public class Base extends SQLiteOpenHelper {
     public Base(@Nullable Context context) {
-        super(context, "gestionne", null, 1);
+        super(context, "TasksDB", null, 1);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -29,10 +28,10 @@ public class Base extends SQLiteOpenHelper {
     }
     public Cursor getAllTask(){
         SQLiteDatabase db=this.getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM task ORDER BY isCompleted",null);
-        return c;
+        Cursor cur = db.rawQuery("SELECT * FROM task ORDER BY isCompleted",null);
+        return cur;
     }
-    public void deletTask(int id){
+    public void deleteTask(int id){
         SQLiteDatabase db= this.getWritableDatabase();
         db.delete("task","id=?",new String[]{String.valueOf(id)});
         db.close();
