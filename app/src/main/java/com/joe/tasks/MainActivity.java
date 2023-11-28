@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button addTask;
     EditText textTask;
     Base base = new Base(MainActivity.this);
+    Base done = new Base(MainActivity.this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +103,17 @@ public class MainActivity extends AppCompatActivity {
                 base.markCompleted(Items.get(position).getIdTask());
                 setViewTask();
             });
+
+            // when click on calader show taskDone for that day
+            textItem.setOnClickListener(v -> {
+                // get date from textItem
+                String date = textItem.getText().toString().split(" ")[0];
+                // get all taskDone for that day
+                Cursor c = done.getAllTaskDone(date);
+                // show taskDone for that day
+                done.showTaskDone();
+            });
+
             return view;
         }
     }
