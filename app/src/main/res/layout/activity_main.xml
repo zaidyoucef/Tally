@@ -33,14 +33,14 @@
 
         <EditText
             android:id="@+id/textTask"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp"
             android:layout_weight="1"
-            android:ems="10"
-            android:background="@null"
-            android:hint="Add a task"
             android:autofillHints=""
+            android:background="@null"
+            android:ems="10"
+            android:hint="Add a task"
             android:inputType="textAutoComplete|textCapSentences|textMultiLine"
             android:textColor="?attr/colorOnSurfaceVariant"
             android:textColorHint="?attr/colorOnSurfaceVariant" />
@@ -51,6 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="Add"
-            android:textColor="?attr/colorOnSecondary" />
+            android:textColor="?attr/colorOnSecondary"
+            app:icon="@drawable/add_24px"
+            app:iconGravity="textEnd" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
